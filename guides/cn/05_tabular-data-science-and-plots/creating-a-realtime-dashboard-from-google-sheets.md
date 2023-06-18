@@ -1,19 +1,19 @@
-# 从Google Sheets创建实时仪表盘
+# 从 Google Sheets 创建实时仪表盘
 Tags: TABULAR, DASHBOARD, PLOTS 
-[Google Sheets](https://www.google.com/sheets/about/) 是一种以电子表格形式存储表格数据的简便方法。借助 Gradio 和 pandas，可以轻松从公共或私有 Google Sheets 读取数据，然后显示数据或绘制数据。在本博文中，我们将构建一个小型*real-time* 仪表盘，该仪表盘在 Google Sheets 中的数据更新时进行更新。
+[Google Sheets](https://www.google.com/sheets/about/) 是一种以电子表格形式存储表格数据的简便方法。借助 Gradio 和 pandas，可以轻松从公共或私有 Google Sheets 读取数据，然后显示数据或绘制数据。在本博文中，我们将构建一个小型 *real-time* 仪表盘，该仪表盘在 Google Sheets 中的数据更新时进行更新。
 构建仪表盘本身只需要使用 Gradio 的 9 行 Python 代码，我们的最终仪表盘如下所示：
 <gradio-app space="gradio/line-plot"></gradio-app>
 
 **先决条件**：本指南使用[Gradio Blocks](../quickstart/#blocks-more-flexibility-and-control)，因此请确保您熟悉 Blocks 类。
 具体步骤略有不同，具体取决于您是使用公开访问还是私有 Google Sheet。我们将分别介绍这两种情况，所以让我们开始吧！
 ## Public Google Sheets
-由于[`pandas`库](https://pandas.pydata.org/)的存在，从公共 Google Sheet 构建仪表盘非常简单：
-1. 获取要使用的 Google Sheets 的网址。为此，只需进入Google Sheets，单击右上角的“共享”按钮，然后单击“获取可共享链接”按钮。这将给您一个类似于以下示例的网址：
+由于[`pandas` 库](https://pandas.pydata.org/)的存在，从公共 Google Sheet 构建仪表盘非常简单：
+1. 获取要使用的 Google Sheets 的网址。为此，只需进入 Google Sheets，单击右上角的“共享”按钮，然后单击“获取可共享链接”按钮。这将给您一个类似于以下示例的网址：
 ```html
 https://docs.google.com/spreadsheets/d/1UoKzzRzOCt-FXLLqDKLbryEKEgllGAQUEJ5qtmmQwpU/edit#gid=0
 ```
 
-2. 现在，修改此网址并使用它从 Google Sheets 读取数据到 Pandas DataFrame 中。 (在下面的代码中，用您的公开 Google Sheet 的网址替换`URL`变量)：
+2. 现在，修改此网址并使用它从 Google Sheets 读取数据到 Pandas DataFrame 中。 (在下面的代码中，用您的公开 Google Sheet 的网址替换 `URL` 变量)：
 ```python
 import pandas as pd
 URL = "https://docs.google.com/spreadsheets/d/1UoKzzRzOCt-FXLLqDKLbryEKEgllGAQUEJ5qtmmQwpU/edit#gid=0"csv_url = URL.replace('/edit#gid=', '/export?format=csv&gid=')
@@ -21,7 +21,7 @@ def get_data():
     return pd.read_csv(csv_url)
 ```
 
-3. 数据查询是一个函数，这意味着可以使用`gr.DataFrame`组件实时显示或使用`gr.LinePlot`组件实时绘制数据（当然，根据数据的不同，可能需要不同的绘图方法）。只需将函数传递给相应的组件，并根据组件刷新的频率（以秒为单位）设置`every`参数。以下是 Gradio 代码：
+3. 数据查询是一个函数，这意味着可以使用 `gr.DataFrame` 组件实时显示或使用 `gr.LinePlot` 组件实时绘制数据（当然，根据数据的不同，可能需要不同的绘图方法）。只需将函数传递给相应的组件，并根据组件刷新的频率（以秒为单位）设置 `every` 参数。以下是 Gradio 代码：
 ```python
 import gradio as gr
 
@@ -35,7 +35,7 @@ with gr.Blocks() as demo:
 
 demo.queue().launch()  # Run the demo with queuing enabled
 ```
- 
+
 到此为止！您现在拥有一个仪表盘，每 5 秒刷新一次，从 Google Sheets 中获取数据。
 ## 私有 Google Sheets
 对于私有 Google Sheets，流程需要更多的工作量，但并不多！关键区别在于，现在您必须经过身份验证，以授权访问私有 Google Sheets。
@@ -70,9 +70,8 @@ demo.queue().launch()  # Run the demo with queuing enabled
 https://docs.google.com/spreadsheets/d/1UoKzzRzOCt-FXLLqDKLbryEKEgllGAQUEJ5qtmmQwpU/edit#gid=0
 ```
 
-
-2. 安装[`gspread`库](https://docs.gspread.org/en/v5.7.0/)，通过在终端运行以下命令使 Python 中使用[Google Sheets API](https://developers.google.com/sheets/api/guides/concepts)更加简单：`pip install gspread`
-3. 编写一个函数来从 Google Sheet 中加载数据，如下所示（用您的私有 Google Sheet 的 URL 替换`URL`变量）：
+2. 安装 [`gspread` 库](https://docs.gspread.org/en/v5.7.0/)，通过在终端运行以下命令使 Python 中使用 [Google Sheets API](https://developers.google.com/sheets/api/guides/concepts) 更加简单：`pip install gspread`
+3. 编写一个函数来从 Google Sheet 中加载数据，如下所示（用您的私有 Google Sheet 的 URL 替换 `URL` 变量）：
 ```python
 import gspreadimport pandas as pd
 # 与 Google 进行身份验证并获取表格URL = 'https://docs.google.com/spreadsheets/d/1_91Vps76SKOdDQ8cFxZQdgjTJiz23375sAT7vPvaj4k/edit#gid=0'
@@ -98,13 +97,9 @@ with gr.Blocks() as demo:
 
 demo.queue().launch()  # 启动带有排队功能的演示
 ```
- 
-现在你有一个每5秒刷新一次的仪表盘，可以从你的Google表格中获取数据。
 
+现在你有一个每 5 秒刷新一次的仪表盘，可以从你的 Google 表格中获取数据。
 
 ## 结论
 
-就是这样！只需几行代码，你就可以使用 `gradio` 和其他库从公共或私有的Google表格中读取数据，然后在实时仪表盘中显示和绘制数据。
-
-
-
+就是这样！只需几行代码，你就可以使用 `gradio` 和其他库从公共或私有的 Google 表格中读取数据，然后在实时仪表盘中显示和绘制数据。

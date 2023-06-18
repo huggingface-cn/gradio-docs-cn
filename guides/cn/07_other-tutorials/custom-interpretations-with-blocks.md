@@ -2,7 +2,6 @@
 
 Tags: INTERPRETATION, SENTIMENT ANALYSIS
 
-
 **前提条件**: 此指南要求您了解 Blocks 和界面的解释功能。请确保[首先阅读 Blocks 指南](https://gradio.app/quickstart/#blocks-more-flexibility-and-control)以及[高级界面功能指南](/advanced-interface-features#interpreting-your-predictions)的解释部分。
 
 ## 简介
@@ -20,7 +19,7 @@ Tags: INTERPRETATION, SENTIMENT ANALYSIS
 
 ## 设置 Blocks 应用程序
 
-让我们使用 Blocks API 构建一款情感分类应用程序。该应用程序将以文本作为输入，并输出此文本表达负面或正面情感的概率。我们会有一个单独的输入`Textbox`和一个单独的输出 `Label` 组件。以下是应用程序的代码以及应用程序本身。
+让我们使用 Blocks API 构建一款情感分类应用程序。该应用程序将以文本作为输入，并输出此文本表达负面或正面情感的概率。我们会有一个单独的输入 `Textbox` 和一个单独的输出 `Label` 组件。以下是应用程序的代码以及应用程序本身。
 
 ```python
 import gradio as gr 
@@ -48,7 +47,7 @@ demo.launch()
 <gradio-app space="freddyaboulton/sentiment-classification"> </gradio-app>
 ## 向应用程序添加解释
 
-我们的目标是向用户呈现输入中的单词如何contributed到模型的预测。
+我们的目标是向用户呈现输入中的单词如何 contributed 到模型的预测。
 这将帮助用户理解模型的工作方式，并评估其有效性。
 例如，我们应该期望我们的模型能够将“happy”和“love”这些词与积极的情感联系起来；如果模型没有联系起来，那么这意味着我们在训练过程中出现了错误！
 
@@ -101,7 +100,7 @@ demo.launch()
 
 ## 自定义解释的显示方式
 
-`gr.components.Interpretation` 组件以很好的方式显示单个单词如何contributed到情感预测，但是如果我们还想显示分数本身，怎么办呢？
+`gr.components.Interpretation` 组件以很好的方式显示单个单词如何 contributed 到情感预测，但是如果我们还想显示分数本身，怎么办呢？
 
 一种方法是生成一个条形图，其中单词在水平轴上，条形高度对应 shap 得分。
 
@@ -157,14 +156,14 @@ with gr.Blocks() as demo:
 demo.launch()
 ```
 
-demo在这里!
+demo 在这里 !
 
 <gradio-app space="freddyaboulton/sentiment-classification-interpretation-tabs"> </gradio-app>
 
 ## Beyond Sentiment Classification （超越情感分类）
 
 尽管到目前为止我们已经集中讨论了情感分类，但几乎可以为任何机器学习模型添加解释。
-输出必须是 `gr.Image` 或 `gr.Label`，但输入几乎可以是任何内容(`gr.Number`, `gr.Slider`, `gr.Radio`, `gr.Image`)。
+输出必须是 `gr.Image` 或 `gr.Label`，但输入几乎可以是任何内容 (`gr.Number`, `gr.Slider`, `gr.Radio`, `gr.Image`)。
 
 这是一个使用 Blocks 构建的图像分类模型解释演示：
 

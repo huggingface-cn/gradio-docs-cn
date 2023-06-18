@@ -1,59 +1,57 @@
-# Gradio和ONNX在Hugging Face上
+# Gradio 和 ONNX 在 Hugging Face 上
 
 Related spaces: https://huggingface.co/spaces/onnx/EfficientNet-Lite4
 Tags: ONNX，SPACES
-由Gradio和<a href="https://onnx.ai/">ONNX</a>团队贡献
+由 Gradio 和 <a href="https://onnx.ai/">ONNX</a> 团队贡献
 
 ## 介绍
 
 在这个指南中，我们将为您介绍以下内容：
 
-* ONNX、ONNX模型仓库、Gradio和Hugging Face Spaces的介绍
-* 如何为EfficientNet-Lite4设置Gradio演示
-* 如何为Hugging Face上的ONNX组织贡献自己的Gradio演示
+* ONNX、ONNX 模型仓库、Gradio 和 Hugging Face Spaces 的介绍
+* 如何为 EfficientNet-Lite4 设置 Gradio 演示
+* 如何为 Hugging Face 上的 ONNX 组织贡献自己的 Gradio 演示
 
-下面是一个ONNX模型的示例：在下面尝试EfficientNet-Lite4演示。
+下面是一个 ONNX 模型的示例：在下面尝试 EfficientNet-Lite4 演示。
 
 <iframe src="https://onnx-efficientnet-lite4.hf.space" frameBorder="0" height="810" title="Gradio app" class="container p-0 flex-grow space-iframe" allow="accelerometer; ambient-light-sensor; autoplay; battery; camera; document-domain; encrypted-media; fullscreen; geolocation; gyroscope; layout-animations; legacy-image-formats; magnetometer; microphone; midi; oversized-images; payment; picture-in-picture; publickey-credentials-get; sync-xhr; usb; vr ; wake-lock; xr-spatial-tracking" sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-downloads"></iframe>
 
-## ONNX模型仓库是什么？
-Open Neural Network Exchange（[ONNX](https://onnx.ai/)）是一种表示机器学习模型的开放标准格式。ONNX由一个实现了该格式的合作伙伴社区支持，该社区将其实施到许多框架和工具中。例如，如果您在TensorFlow或PyTorch中训练了一个模型，您可以轻松地将其转换为ONNX，然后使用类似ONNX Runtime的引擎/编译器在各种设备上运行它。
+## ONNX 模型仓库是什么？
+Open Neural Network Exchange（[ONNX](https://onnx.ai/)）是一种表示机器学习模型的开放标准格式。ONNX 由一个实现了该格式的合作伙伴社区支持，该社区将其实施到许多框架和工具中。例如，如果您在 TensorFlow 或 PyTorch 中训练了一个模型，您可以轻松地将其转换为 ONNX，然后使用类似 ONNX Runtime 的引擎 / 编译器在各种设备上运行它。
 
-[ONNX模型仓库](https://github.com/onnx/models)是由社区成员贡献的一组预训练的先进模型，格式为ONNX。每个模型都附带了用于模型训练和运行推理的Jupyter笔记本。这些笔记本以Python编写，并包含到训练数据集的链接，以及描述模型架构的原始论文的参考文献。
+[ONNX 模型仓库](https://github.com/onnx/models)是由社区成员贡献的一组预训练的先进模型，格式为 ONNX。每个模型都附带了用于模型训练和运行推理的 Jupyter 笔记本。这些笔记本以 Python 编写，并包含到训练数据集的链接，以及描述模型架构的原始论文的参考文献。
 
-
-## Hugging Face Spaces和Gradio是什么？
+## Hugging Face Spaces 和 Gradio 是什么？
 
 ### Gradio
 
-Gradio可让用户使用Python代码将其机器学习模型演示为Web应用程序。Gradio将Python函数封装到用户界面中，演示可以在jupyter笔记本、colab笔记本中启动，并可以嵌入到您自己的网站上，并在Hugging Face Spaces上免费托管。
+Gradio 可让用户使用 Python 代码将其机器学习模型演示为 Web 应用程序。Gradio 将 Python 函数封装到用户界面中，演示可以在 jupyter 笔记本、colab 笔记本中启动，并可以嵌入到您自己的网站上，并在 Hugging Face Spaces 上免费托管。
 
 在此处开始[https://gradio.app/getting_started](https://gradio.app/getting_started)
 
 ### Hugging Face Spaces
 
-Hugging Face Spaces是Gradio演示的免费托管选项。Spaces提供了3种SDK选项：Gradio、Streamlit和静态HTML演示。Spaces可以是公共的或私有的，工作流程与github repos类似。目前Hugging Face上有2000多个Spaces。在此处了解更多关于Spaces的信息[https://huggingface.co/spaces/launch](https://huggingface.co/spaces/launch)。
+Hugging Face Spaces 是 Gradio 演示的免费托管选项。Spaces 提供了 3 种 SDK 选项：Gradio、Streamlit 和静态 HTML 演示。Spaces 可以是公共的或私有的，工作流程与 github repos 类似。目前 Hugging Face 上有 2000 多个 Spaces。在此处了解更多关于 Spaces 的信息[https://huggingface.co/spaces/launch](https://huggingface.co/spaces/launch)。
 
-### Hugging Face模型
+### Hugging Face 模型
 
-Hugging Face模型中心还支持ONNX模型，并且可以通过[ONNX标签](https://huggingface.co/models?library=onnx&sort=downloads)对ONNX模型进行筛选
+Hugging Face 模型中心还支持 ONNX 模型，并且可以通过[ONNX 标签](https://huggingface.co/models?library=onnx&sort=downloads)对 ONNX 模型进行筛选
 
-## Hugging Face是如何帮助ONNX模型仓库的？
-ONNX模型仓库中有许多Jupyter笔记本供用户测试模型。以前，用户需要自己下载模型并在本地运行这些笔记本测试。有了Hugging Face，测试过程可以更简单和用户友好。用户可以在Hugging Face Spaces上轻松尝试ONNX模型仓库中的某个模型，并使用ONNX Runtime运行由Gradio提供支持的快速演示，全部在云端进行，无需在本地下载任何内容。请注意，ONNX有各种运行时，例如[ONNX Runtime](https://github.com/microsoft/onnxruntime)、[MXNet](https://github.com/apache/incubator-mxnet)等
+## Hugging Face 是如何帮助 ONNX 模型仓库的？
+ONNX 模型仓库中有许多 Jupyter 笔记本供用户测试模型。以前，用户需要自己下载模型并在本地运行这些笔记本测试。有了 Hugging Face，测试过程可以更简单和用户友好。用户可以在 Hugging Face Spaces 上轻松尝试 ONNX 模型仓库中的某个模型，并使用 ONNX Runtime 运行由 Gradio 提供支持的快速演示，全部在云端进行，无需在本地下载任何内容。请注意，ONNX 有各种运行时，例如[ONNX Runtime](https://github.com/microsoft/onnxruntime)、[MXNet](https://github.com/apache/incubator-mxnet)等
 
-## ONNX Runtime的作用是什么？
-ONNX Runtime是一个跨平台的推理和训练机器学习加速器。它使得在Hugging Face上使用ONNX模型仓库中的模型进行实时Gradio演示成为可能。
+## ONNX Runtime 的作用是什么？
+ONNX Runtime 是一个跨平台的推理和训练机器学习加速器。它使得在 Hugging Face 上使用 ONNX 模型仓库中的模型进行实时 Gradio 演示成为可能。
 
-ONNX Runtime可以实现更快的客户体验和更低的成本，支持来自PyTorch和TensorFlow/Keras等深度学习框架以及scikit-learn、LightGBM、XGBoost等传统机器学习库的模型。ONNX Runtime与不同的硬件、驱动程序和操作系统兼容，并通过利用适用的硬件加速器以及图形优化和转换提供最佳性能。有关更多信息，请参阅[官方网站](https://onnxruntime.ai/)。
+ONNX Runtime 可以实现更快的客户体验和更低的成本，支持来自 PyTorch 和 TensorFlow/Keras 等深度学习框架以及 scikit-learn、LightGBM、XGBoost 等传统机器学习库的模型。ONNX Runtime 与不同的硬件、驱动程序和操作系统兼容，并通过利用适用的硬件加速器以及图形优化和转换提供最佳性能。有关更多信息，请参阅[官方网站](https://onnxruntime.ai/)。
 
-## 为EfficientNet-Lite4设置Gradio演示
+## 为 EfficientNet-Lite4 设置 Gradio 演示
 
-EfficientNet-Lite 4是EfficientNet-Lite系列中最大和最准确的模型。它是一个仅使用整数量化的模型，能够在所有EfficientNet模型中提供最高的准确率。在Pixel 4 CPU上以实时方式运行（例如30ms/图像）时，可以实现80.4％的ImageNet top-1准确率。要了解更多信息，请阅读[模型卡片](https://github.com/onnx/models/tree/main/vision/classification/efficientnet-lite4)
+EfficientNet-Lite 4 是 EfficientNet-Lite 系列中最大和最准确的模型。它是一个仅使用整数量化的模型，能够在所有 EfficientNet 模型中提供最高的准确率。在 Pixel 4 CPU 上以实时方式运行（例如 30ms/ 图像）时，可以实现 80.4％的 ImageNet top-1 准确率。要了解更多信息，请阅读[模型卡片](https://github.com/onnx/models/tree/main/vision/classification/efficientnet-lite4)
 
-在这里，我们将演示如何使用Gradio为EfficientNet-Lite4设置示例演示
+在这里，我们将演示如何使用 Gradio 为 EfficientNet-Lite4 设置示例演示
 
-首先，我们导入所需的依赖项并下载和载入来自ONNX模型仓库的efficientnet-lite4模型。然后从labels_map.txt文件加载标签。接下来，我们设置预处理函数、加载用于推理的模型并设置推理函数。最后，将推理函数封装到Gradio接口中，供用户进行交互。下面是完整的代码。
-
+首先，我们导入所需的依赖项并下载和载入来自 ONNX 模型仓库的 efficientnet-lite4 模型。然后从 labels_map.txt 文件加载标签。接下来，我们设置预处理函数、加载用于推理的模型并设置推理函数。最后，将推理函数封装到 Gradio 接口中，供用户进行交互。下面是完整的代码。
 
 ```python
 import numpy as np
@@ -130,13 +128,12 @@ examples = [['catonnx.jpg']]
 gr.Interface(inference, gr.Image(type="filepath"), "label", title=title, description=description, examples=examples).launch()
 ```
 
-
-## 如何使用ONNX模型在HF Spaces上贡献Gradio演示
+## 如何使用 ONNX 模型在 HF Spaces 上贡献 Gradio 演示
 
 * 将模型添加到[onnx model zoo](https://github.com/onnx/models/blob/main/.github/PULL_REQUEST_TEMPLATE.md)
-* 在Hugging Face上创建一个账号[here](https://huggingface.co/join).
-* 要查看还有哪些模型需要添加到ONNX组织中，请参阅[Models list](https://github.com/onnx/models#models)中的列表
-* 在您的用户名下添加Gradio Demo，请参阅此[博文](https://huggingface.co/blog/gradio-spaces)以在Hugging Face上设置Gradio Demo。
-* 请求加入ONNX组织[here](https://huggingface.co/onnx).
-* 一旦获准，将模型从您的用户名下转移到ONNX组织
+* 在 Hugging Face 上创建一个账号[here](https://huggingface.co/join).
+* 要查看还有哪些模型需要添加到 ONNX 组织中，请参阅[Models list](https://github.com/onnx/models#models)中的列表
+* 在您的用户名下添加 Gradio Demo，请参阅此[博文](https://huggingface.co/blog/gradio-spaces)以在 Hugging Face 上设置 Gradio Demo。
+* 请求加入 ONNX 组织[here](https://huggingface.co/onnx).
+* 一旦获准，将模型从您的用户名下转移到 ONNX 组织
 * 在模型表中为模型添加徽章，在[Models list](https://github.com/onnx/models#models)中查看示例

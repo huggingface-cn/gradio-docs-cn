@@ -50,9 +50,7 @@ demo.launch()
 
 The previous code produces the following interface, which you can try right here in your browser: 
 
-
 <gradio-app space="Helsinki-NLP/opus-mt-en-es"></gradio-app>
-
 
 ## Using Hugging Face Inference API
 
@@ -80,7 +78,6 @@ You might notice that the first inference takes about 20 seconds. This happens s
 
 [Hugging Face Spaces](https://hf.co/spaces) allows anyone to host their Gradio demos freely, and uploading your Gradio demos take a couple of minutes. You can head to [hf.co/new-space](https://huggingface.co/new-space), select the Gradio SDK, create an `app.py` file, and voila! You have a demo you can share with anyone else. To learn more, read [this guide how to host on Hugging Face Spaces using the website](https://huggingface.co/blog/gradio-spaces).
 
-
 Alternatively, you can create a Space programmatically, making use of the [huggingface_hub client library](https://huggingface.co/docs/huggingface_hub/index) library. Here's an example:
 
 ```python
@@ -101,12 +98,9 @@ file_url = upload_file(
 ```
 Here, `create_repo` creates a gradio repo with the target name under a specific account using that account's Write Token. `repo_name` gets the full repo name of the related repo. Finally `upload_file` uploads a file inside the repo with the name `app.py`.
 
-
-
 ## Embedding your Space demo on other websites
 
 Throughout this guide, you've seen many embedded Gradio demos. You can also do this on own website! The first step is to create a Hugging Face Space with the demo you want to showcase. Then, [follow the steps here to embed the Space on your website](/sharing-your-app/#embedding-hosted-spaces).
-
 
 ## Loading demos from Spaces
 
@@ -137,6 +131,5 @@ That's it! Let's recap the various ways Gradio and Hugging Face work together:
 3. You host your Gradio demo on Hugging Face Spaces, either using the GUI or entirely in Python.
 4. You can embed Gradio demos that are hosted on Hugging Face Spaces onto your own website.
 5. You can load demos from Hugging Face Spaces to remix and create new Gradio demos using `gr.load()`.
-
 
 🤗

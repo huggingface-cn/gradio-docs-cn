@@ -77,9 +77,9 @@ import subprocess
 def process_video(video_path):
     old_audio = os.path.basename(video_path).split(".")[0] + ".m4a"
     subprocess.run(['ffmpeg', '-y', '-i', video_path, '-vn', '-acodec', 'copy', old_audio])
-    
+
     new_audio = acapellify(old_audio)
-    
+
     new_video = f"acap_{video_path}"
     subprocess.call(['ffmpeg', '-y', '-i', video_path, '-i', new_audio, '-map', '0:v', '-map', '1:a', '-c:v', 'copy', '-c:a', 'aac', '-strict', 'experimental', f"static/{new_video}"])
     return new_video
@@ -141,7 +141,7 @@ async def upload_video(video: UploadFile = File(...)):
 &lt;!DOCTYPE html>
 &lt;html>
   &lt;head>
-    &lt;title>视频库&lt;/title>
+    &lt;title> 视频库 &lt;/title>
     &lt;style>
       body {
         font-family: sans-serif;
@@ -203,7 +203,7 @@ async def upload_video(video: UploadFile = File(...)):
     &lt;/style>
   &lt;/head>
   &lt;body>
-    &lt;h1>视频库&lt;/h1>
+    &lt;h1> 视频库 &lt;/h1>
     {% if videos %}
       &lt;div class="gallery">
         {% for video in videos %}
@@ -217,13 +217,13 @@ async def upload_video(video: UploadFile = File(...)):
         {% endfor %}
       &lt;/div>
     {% else %}
-      &lt;p>尚未上传任何视频。&lt;/p>
+      &lt;p> 尚未上传任何视频。&lt;/p>
     {% endif %}
     &lt;form action="/uploadvideo/" method="post" enctype="multipart/form-data">
-      &lt;label for="video-upload" class="upload-btn">选择视频文件&lt;/label>
+      &lt;label for="video-upload" class="upload-btn"> 选择视频文件 &lt;/label>
       &lt;input type="file" name="video" id="video-upload">
       &lt;span class="file-name">&lt;/span>
-      &lt;button type="submit" class="upload-btn">上传&lt;/button>
+      &lt;button type="submit" class="upload-btn"> 上传 &lt;/button>
     &lt;/form>
     &lt;script>
       // 在表单中显示所选文件名
