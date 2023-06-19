@@ -30,7 +30,7 @@
 import os
 
 if not os.getenv("OPENAI_API_KEY"):
-    raise ValueError("OPENAI_API_KEY必须设置")
+    raise ValueError("OPENAI_API_KEY 必须设置 ")
 
 from langchain.agents import initialize_agent
 from langchain.llms import OpenAI
@@ -43,7 +43,6 @@ llm = OpenAI(temperature=0)
 memory = ConversationBufferMemory(memory_key="chat_history")
 tools = [StableDiffusionTool().langchain, ImageCaptioningTool().langchain,
          StableDiffusionPromptGeneratorTool().langchain, TextToVideoTool().langchain]
-
 
 agent = initialize_agent(tools, llm, memory=memory, agent="conversational-react-description", verbose=True)
 output = agent.run(input=("Please create a photo of a dog riding a skateboard "
@@ -125,9 +124,7 @@ class StableDiffusionTool(GradioTool):
 
 3. `postprocess` 方法只是返回由稳定扩散空间创建的图库中的第一个图像。我们使用 `os` 模块获取图像的完整路径。
 
-
 ## Conclusion
 
 现在，您已经知道如何通过数千个运行在野外的 gradio 空间来扩展您的 LLM 的能力了！
 同样，我们欢迎对 [gradio_tools](https://github.com/freddyaboulton/gradio-tools) 库的任何贡献。我们很兴奋看到大家构建的工具！
-

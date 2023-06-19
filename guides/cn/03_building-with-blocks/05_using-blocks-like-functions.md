@@ -1,7 +1,6 @@
 # 使用 Gradio 块像函数一样
 Tags: TRANSLATION, HUB, SPACES
 
-
 **先决条件**: 本指南是在块介绍的基础上构建的。请确保[先阅读该指南](https://gradio.app/quickstart/#blocks-more-flexibility-and-control)。
 
 ## 介绍
@@ -10,7 +9,7 @@ Tags: TRANSLATION, HUB, SPACES
 
 这意味着如果你有一个名为 `demo` 的 Gradio 块（或界面）应用，你可以像使用任何 Python 函数一样使用 `demo`。
 
-所以，像 `output = demo("Hello", "friend")` 这样的操作会在输入为"Hello"和"friend"的情况下运行 `demo` 中定义的第一个事件，并将其存储在变量 `output` 中。
+所以，像 `output = demo("Hello", "friend")` 这样的操作会在输入为 "Hello" 和 "friend" 的情况下运行 `demo` 中定义的第一个事件，并将其存储在变量 `output` 中。
 
 如果以上内容让你打瞌睡 🥱，请忍耐一下！通过将应用程序像函数一样使用，你可以轻松地组合 Gradio 应用。
 接下来的部分将展示如何实现。
@@ -35,9 +34,9 @@ $demo_english_translator
 
 2. 在你的应用程序中加载我的英德翻译，并将其当作普通的 Python 函数处理。
 
-选项1从技术上讲总是有效的，但它经常引入不必要的复杂性。
+选项 1 从技术上讲总是有效的，但它经常引入不必要的复杂性。
 
-选项2允许你借用所需的功能，而不会过于紧密地耦合我们的应用程序。
+选项 2 允许你借用所需的功能，而不会过于紧密地耦合我们的应用程序。
 
 你只需要在源文件中调用 `Blocks.load` 类方法即可。
 之后，你就可以像使用普通的 Python 函数一样使用我的翻译应用程序了！
@@ -70,7 +69,7 @@ english_generator(text, api_name="translate-to-german")[0]["generated_text"]
 english_generator(text, fn_index=1)[0]["generated_text"]
 
 Gradio 空间中的函数是从零开始索引的，所以西班牙语翻译器将是我的空间中的第二个函数，
-因此你会使用索引1。
+因此你会使用索引 1。
 
 ## 结语
 

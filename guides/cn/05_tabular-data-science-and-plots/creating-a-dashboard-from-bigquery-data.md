@@ -1,7 +1,6 @@
 # 从 BigQuery 数据创建实时仪表盘
 
-标签: 表格, 仪表盘, 绘图 
-
+Tags: 表格 , 仪表盘 , 绘图 
 
 [Google BigQuery](https://cloud.google.com/bigquery) 是一个基于云的用于处理大规模数据集的服务。它是一个无服务器且高度可扩展的数据仓库解决方案，使用户能够使用类似 SQL 的查询分析数据。
 

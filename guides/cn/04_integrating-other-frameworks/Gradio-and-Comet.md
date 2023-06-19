@@ -14,11 +14,9 @@ Tags: COMET, SPACES
 3. 直接将 Hugging Face Spaces 嵌入到您的 Comet 项目中
 4. 将 Gradio 应用程序的模型推理记录到 Comet 中
 
-
 ## 什么是 Comet？
 
 [Comet](https://www.comet.com?utm_source=gradio&utm_medium=referral&utm_campaign=gradio-integration&utm_content=gradio-docs) 是一个 MLOps 平台，旨在帮助数据科学家和团队更快地构建更好的模型！Comet 提供工具来跟踪、解释、管理和监控您的模型，集中在一个地方！它可以与 Jupyter 笔记本和脚本配合使用，最重要的是，它是 100% 免费的！
-
 
 ## 设置
 
@@ -119,7 +117,6 @@ io.integrate(comet_ml=experiment)
     <source src="https://user-images.githubusercontent.com/7529846/214328194-95987f83-c180-4929-9bed-c8a0d3563ed7.mp4"></source>
 </video>
 
-
 ## 2. 直接将 Gradio 应用程序嵌入到您的 Comet 项目中
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/KZnpH7msPq0?start=9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -140,31 +137,29 @@ io.integrate(comet_ml=experiment)
 
 <img width="560" alt="Edit-Gradio-Panel-URL" src="https://user-images.githubusercontent.com/7529846/214334843-870fe726-0aa1-4b21-bbc6-0c48f56c48d8.png">
 
+## 3. 直接将 Hugging Face Spaces 嵌入到您的 Comet 项目中
 
-## 3. 直接将Hugging Face Spaces嵌入到您的Comet项目中
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KZnpH7msPq0?start=107" title="YouTube 视频播放器 " frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KZnpH7msPq0?start=107" title="YouTube视频播放器" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+您还可以使用 Hugging Face Spaces 面板将托管在 Hugging Faces Spaces 中的 Gradio 应用程序嵌入到您的 Comet 项目中。
 
-您还可以使用Hugging Face Spaces面板将托管在Hugging Faces Spaces中的Gradio应用程序嵌入到您的Comet项目中。
-
-转到Comet项目页面，转到面板选项卡。单击“+添加”按钮以打开面板搜索页面。然后，在公共面板部分搜索Hugging Face Spaces面板并单击“添加”。
+转到 Comet 项目页面，转到面板选项卡。单击“+添加”按钮以打开面板搜索页面。然后，在公共面板部分搜索 Hugging Face Spaces 面板并单击“添加”。
 
 <img width="560" height="315" alt="huggingface-spaces-panel" src="https://user-images.githubusercontent.com/7529846/214325606-99aa3af3-b284-4026-b423-d3d238797e12.png">
 
-添加面板后，单击“编辑”以访问面板选项页面，并粘贴您的Hugging Face Space路径，例如`pytorch/ResNet`
+添加面板后，单击“编辑”以访问面板选项页面，并粘贴您的 Hugging Face Space 路径，例如 `pytorch/ResNet`
 
 <img width="560" height="315" alt="Edit-HF-Space" src="https://user-images.githubusercontent.com/7529846/214335868-c6f25dee-13db-4388-bcf5-65194f850b02.png">
 
-## 4. 记录模型推断结果到Comet
+## 4. 记录模型推断结果到 Comet
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KZnpH7msPq0?start=176" title="YouTube视频播放器" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KZnpH7msPq0?start=176" title="YouTube 视频播放器 " frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-[![在Colab中打开](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/comet-ml/comet-examples/blob/master/integrations/model-evaluation/gradio/notebooks/Logging_Model_Inferences_with_Comet_and_Gradio.ipynb)
+[![在 Colab 中打开](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/comet-ml/comet-examples/blob/master/integrations/model-evaluation/gradio/notebooks/Logging_Model_Inferences_with_Comet_and_Gradio.ipynb)
 
+在前面的示例中，我们演示了通过 Comet UI 与 Gradio 应用程序交互的各种方法。此外，您还可以将 Gradio 应用程序的模型推断（例如 SHAP 图）记录到 Comet 中。
 
-在前面的示例中，我们演示了通过Comet UI与Gradio应用程序交互的各种方法。此外，您还可以将Gradio应用程序的模型推断（例如SHAP图）记录到Comet中。
-
-在以下代码段中，我们将记录来自文本生成模型的推断。我们可以使用Gradio的[State](https://www.gradio.app/docs/#state)对象在多次推断调用之间保持实验的持久性。这将使您能够将多个模型推断记录到单个实验中。
+在以下代码段中，我们将记录来自文本生成模型的推断。我们可以使用 Gradio 的[State](https://www.gradio.app/docs/#state)对象在多次推断调用之间保持实验的持久性。这将使您能够将多个模型推断记录到单个实验中。
 
 ```python
 import comet_ml
@@ -253,7 +248,7 @@ with gr.Blocks() as demo:
     )
 ```
 
-该代码段中的推断结果将保存在实验的HTML选项卡中。
+该代码段中的推断结果将保存在实验的 HTML 选项卡中。
 
 <video width="560" height="315" controls>
     <source src="https://user-images.githubusercontent.com/7529846/214328610-466e5c81-4814-49b9-887c-065aca14dd30.mp4"></source>
@@ -261,14 +256,14 @@ with gr.Blocks() as demo:
 
 ## 结论
 
-希望您对本指南有所裨益，并能为您构建出色的Comet和Gradio模型评估工作流程提供一些启示。
+希望您对本指南有所裨益，并能为您构建出色的 Comet 和 Gradio 模型评估工作流程提供一些启示。
 
-## 如何在Comet组织上贡献Gradio演示
+## 如何在 Comet 组织上贡献 Gradio 演示
 
-* 在Hugging Face上创建帐号[此处](https://huggingface.co/join)。
-* 在用户名下添加Gradio演示，请参阅[此处](https://huggingface.co/course/chapter9/4?fw=pt)以设置Gradio演示。
-* 请求加入Comet组织[此处](https://huggingface.co/Comet)。
+* 在 Hugging Face 上创建帐号[此处](https://huggingface.co/join)。
+* 在用户名下添加 Gradio 演示，请参阅[此处](https://huggingface.co/course/chapter9/4?fw=pt)以设置 Gradio 演示。
+* 请求加入 Comet 组织[此处](https://huggingface.co/Comet)。
 
 ## 更多资源
 
-* [Comet文档](https://www.comet.com/docs/v2/?utm_source=gradio&utm_medium=referral&utm_campaign=gradio-integration&utm_content=gradio-docs)
+* [Comet 文档](https://www.comet.com/docs/v2/?utm_source=gradio&utm_medium=referral&utm_campaign=gradio-integration&utm_content=gradio-docs)

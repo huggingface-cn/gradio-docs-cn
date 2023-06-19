@@ -46,7 +46,7 @@ npm i @gradio/client
 ```js
 import { client } from "@gradio/client";
 
-const app = client("abidlabs/en2fr"); // 一个从英语翻译为法语的Space
+const app = client("abidlabs/en2fr"); // 一个从英语翻译为法语的 Space
 ```
 
 您还可以通过在options参数的`hf_token`属性中传入您的HF token来连接到私有Spaces。您可以在此处获取您的HF token：https://huggingface.co/settings/tokens

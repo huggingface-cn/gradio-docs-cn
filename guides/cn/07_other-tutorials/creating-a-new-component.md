@@ -2,24 +2,24 @@
 
 ## 简介
 
-本指南旨在说明如何添加一个新组件，你可以在Gradio应用程序中使用该组件。该指南将通过代码片段逐步展示如何添加[ColorPicker](https://gradio.app/docs/#colorpicker)组件。
+本指南旨在说明如何添加一个新组件，你可以在 Gradio 应用程序中使用该组件。该指南将通过代码片段逐步展示如何添加[ColorPicker](https://gradio.app/docs/#colorpicker)组件。
 
 ## 先决条件
 
 确保您已经按照[CONTRIBUTING.md](https://github.com/gradio-app/gradio/blob/main/CONTRIBUTING.md)指南设置了本地开发环境（包括客户端和服务器端）。
 
-以下是在Gradio上创建新组件的步骤：
+以下是在 Gradio 上创建新组件的步骤：
 
-1. [创建一个新的Python类并导入它](#1-create-a-new-python-class-and-import-it)
-2. [创建一个新的Svelte组件](#2-create-a-new-svelte-component)
+1. [创建一个新的 Python 类并导入它](#1-create-a-new-python-class-and-import-it)
+2. [创建一个新的 Svelte 组件](#2-create-a-new-svelte-component)
 3. [创建一个新的演示](#3-create-a-new-demo)
 
-## 1. 创建一个新的Python类并导入它
+## 1. 创建一个新的 Python 类并导入它
 
-首先要做的是在[components.py](https://github.com/gradio-app/gradio/blob/main/gradio/components.py)文件中创建一个新的类。这个Python类应该继承自一系列的基本组件，并且应该根据要添加的组件的类型（例如输入、输出或静态组件）将其放置在文件中的正确部分。
+首先要做的是在[components.py](https://github.com/gradio-app/gradio/blob/main/gradio/components.py)文件中创建一个新的类。这个 Python 类应该继承自一系列的基本组件，并且应该根据要添加的组件的类型（例如输入、输出或静态组件）将其放置在文件中的正确部分。
 一般来说，建议参考现有的组件（例如[TextBox](https://github.com/gradio-app/gradio/blob/main/gradio/components.py#L290)），将其代码复制为骨架，然后根据实际情况进行修改。
 
-让我们来看一下添加到[components.py](https://github.com/gradio-app/gradio/blob/main/gradio/components.py)文件中的ColorPicker组件的类：
+让我们来看一下添加到[components.py](https://github.com/gradio-app/gradio/blob/main/gradio/components.py)文件中的 ColorPicker 组件的类：
 
 ```python
 @document()
@@ -146,9 +146,9 @@ from gradio.components import (
 
 ```
 
-### 1.1 为Python类编写单元测试
+### 1.1 为 Python 类编写单元测试
 
-在开发新组件时，还应为其编写一套单元测试。这些测试应该放在[gradio/test/test_components.py](https://github.com/gradio-app/gradio/blob/main/test/test_components.py)文件中。同样，如上所述，参考其他组件的测试（例如[Textbox](https://github.com/gradio-app/gradio/blob/main/test/test_components.py)）并添加尽可能多的单元测试，以测试新组件的所有不同方面和功能。例如，为ColorPicker组件添加了以下测试：
+在开发新组件时，还应为其编写一套单元测试。这些测试应该放在[gradio/test/test_components.py](https://github.com/gradio-app/gradio/blob/main/test/test_components.py)文件中。同样，如上所述，参考其他组件的测试（例如[Textbox](https://github.com/gradio-app/gradio/blob/main/test/test_components.py)）并添加尽可能多的单元测试，以测试新组件的所有不同方面和功能。例如，为 ColorPicker 组件添加了以下测试：
 
 ```python
 class TestColorPicker(unittest.TestCase):
@@ -207,7 +207,7 @@ class TestColorPicker(unittest.TestCase):
 让我们来看看创建新组件的前端并将其与其 Python 代码映射起来的步骤：
 
 - 在 [js 文件夹](https://github.com/gradio-app/gradio/tree/main/js/) 中创建一个新的 UI-side Svelte 组件，并确定要放置在什么地方。选项包括：创建新组件的包（如果与现有组件完全不同），或将新组件添加到现有包中，例如 [form 包](https://github.com/gradio-app/gradio/tree/main/js/form)。例如，ColorPicker 组件被包含在 form 包中，因为它与已存在的组件相似。
-- 在您将 Svelte 组件放置的包的 src 文件夹中创建一个带有适当名称的文件，注意：名称必须以大写字母开头。这是“核心”组件，是没有 Gradio 特定功能了解的通用组件。最初，将任何文本/HTML 添加到此文件，以便组件呈现任何内容。ColorPicker 的 Svelte 应用程序代码如下所示：
+- 在您将 Svelte 组件放置的包的 src 文件夹中创建一个带有适当名称的文件，注意：名称必须以大写字母开头。这是“核心”组件，是没有 Gradio 特定功能了解的通用组件。最初，将任何文本 /HTML 添加到此文件，以便组件呈现任何内容。ColorPicker 的 Svelte 应用程序代码如下所示：
 
 ```typescript
 <script lang="ts">
@@ -361,7 +361,7 @@ export { default as Component } from "./ColorPicker.svelte";
 export const modes = ["static", "dynamic"];
 ```
 
-- `directory.ts`文件中添加组件的映射。复制并粘贴任何组件的映射行，并编辑其文本。键名必须是Python库中实际组件名称的小写版本。例如，对于ColorPicker组件，映射如下所示：
+- `directory.ts` 文件中添加组件的映射。复制并粘贴任何组件的映射行，并编辑其文本。键名必须是 Python 库中实际组件名称的小写版本。例如，对于 ColorPicker 组件，映射如下所示：
 
 ```typescript
 export const component_map = {
@@ -371,20 +371,20 @@ colorpicker: () => import("./ColorPicker"),
 }
 ```
 
-### 2.1 为Svelte组件编写单元测试
+### 2.1 为 Svelte 组件编写单元测试
 
-在开发新组件时，您还应该为其编写一套单元测试。测试应该放置在新组件的文件夹中，文件名为MyAwesomeComponent.test.ts。同样，像上面那样参考其他组件的测试（例如[Textbox.test.ts](https://github.com/gradio-app/gradio/blob/main/js/app/src/components/Textbox/Textbox.test.ts)），并添加尽可能多的单元测试，以测试新组件的不同方面和功能。
+在开发新组件时，您还应该为其编写一套单元测试。测试应该放置在新组件的文件夹中，文件名为 MyAwesomeComponent.test.ts。同样，像上面那样参考其他组件的测试（例如[Textbox.test.ts](https://github.com/gradio-app/gradio/blob/main/js/app/src/components/Textbox/Textbox.test.ts)），并添加尽可能多的单元测试，以测试新组件的不同方面和功能。
 
 ### 3. 创建新的演示
 
-最后一步是在[gradio/demo文件夹](https://github.com/gradio-app/gradio/tree/main/demo)中创建一个使用新添加的组件的演示。同样，建议参考现有演示。在一个名为run.py的文件中编写演示的代码，添加必要的要求和显示应用程序界面的图像。最后添加一个显示其用法的gif。
-您可以查看为ColorPicker创建的[demo](https://github.com/gradio-app/gradio/tree/main/demo/color_picker)，其中以新组件选择的图标和颜色作为输入，并以选择的颜色着色的相同图标作为输出。
+最后一步是在[gradio/demo 文件夹](https://github.com/gradio-app/gradio/tree/main/demo)中创建一个使用新添加的组件的演示。同样，建议参考现有演示。在一个名为 run.py 的文件中编写演示的代码，添加必要的要求和显示应用程序界面的图像。最后添加一个显示其用法的 gif。
+您可以查看为 ColorPicker 创建的[demo](https://github.com/gradio-app/gradio/tree/main/demo/color_picker)，其中以新组件选择的图标和颜色作为输入，并以选择的颜色着色的相同图标作为输出。
 
 要测试应用程序：
 
-- 在终端上运行`python path/demo/run.py`，它会在地址[http://localhost:7860](http://localhost:7860)启动后端；
-- 在另一个终端上，运行`pnpm dev`以在[http://localhost:9876](http://localhost:9876)上启动具有热重新加载功能的前端。
+- 在终端上运行 `python path/demo/run.py`，它会在地址 [http://localhost:7860](http://localhost:7860) 启动后端；
+- 在另一个终端上，运行 `pnpm dev` 以在 [http://localhost:9876](http://localhost:9876) 上启动具有热重新加载功能的前端。
 
 ## 结论
 
-在本指南中，我们展示了将新组件添加到Gradio是多么简单，逐步介绍了如何添加ColorPicker组件。要了解更多细节，可以参考PR：[#1695](https://github.com/gradio-app/gradio/pull/1695).
+在本指南中，我们展示了将新组件添加到 Gradio 是多么简单，逐步介绍了如何添加 ColorPicker 组件。要了解更多细节，可以参考 PR：[#1695](https://github.com/gradio-app/gradio/pull/1695).
